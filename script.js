@@ -176,3 +176,52 @@ document.getElementById('year').textContent = new Date().getFullYear();
     }, 3000);
   });
 })();
+
+// ---------- Google Sheets Email Collector ----------
+const form = document.getElementById("emailForm");
+const emailInput = document.getElementById("emailInput");
+const submitBtn = document.getElementById("submitBtn");
+const submitText = document.getElementById("submitText");
+const successMsg = document.getElementById("successMsg");
+
+// YOUR GOOGLE SCRIPT URL (already provided)
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw4jYNc9vvgHb5ohKApJQshtjoPHxc_tewwHS-FLFZgAkxCHfB7wk3QlSw9YJb95lfT/exec";
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const email = emailInput.value.trim();
+  if (!email || !email.includes("@")) return;
+
+  // disable button + loading state
+  submitBtn.disabled = true;
+  submitText.textContent = "Submitting...";
+
+  try {
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      body: new URLSearchParams({ email })
+    });
+
+    // success response
+    successMsg.classList.remove("hidden");
+    successMsg.textContent = "You're added to the waitlist!";
+    emailInput.value = "";
+
+    setTimeout(() => {
+      successMsg.classList.add("hidden");
+      submitBtn.disabled = false;
+      submitText.textContent = "Join the Waitlist";
+    }, 3000);
+
+  } catch (err) {
+    successMsg.classList.remove("hidden");
+    successMsg.textContent = "Something went wrong. Try again.";
+    
+    setTimeout(() => {
+      successMsg.classList.add("hidden");
+      submitBtn.disabled = false;
+      submitText.textContent = "Join the Waitlist";
+    }, 3000);
+  }
+});
