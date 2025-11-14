@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Climakt India</title>
+  <meta name="description" content="Climakt India — purchase verified carbon credits and contribute to a sustainable future." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <!-- background particles container -->
+    <div id="particles" aria-hidden="true"></div>
+
+    <!-- top nav -->
+    <header class="nav">
+      <div class="container nav-inner">
+        <div class="brand">
+          <!-- simple leaf svg -->
+          <svg class="leaf" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 2C12 2 8 6 6 10c-2 4 0 8 0 8s4-2 8-6 6-8 6-8-4 0-8 0z" />
+          </svg>
+          <span class="brand-title">Climakt India</span>
+        </div>
+        <nav class="links" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#solutions">Solutions</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- hero -->
+    <main>
+      <section class="hero container">
+        <div class="hero-left">
+          <div class="pill">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18" stroke-linecap="round" stroke-width="2" /></svg>
+            <span>Reduce Your Carbon Footprint</span>
+          </div>
+
+          <h1 class="hero-title">
+            Offset Carbon.<br/>
+            <span class="accent">Save Earth.</span>
+          </h1>
+
+          <p class="hero-sub">
+            Join the global movement to combat climate change. Purchase verified carbon credits and support sustainable projects worldwide.
+          </p>
+
+          <div class="card live-count" aria-live="polite">
+            <div class="label"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg> Live Global CO₂ Emissions</div>
+            <div id="co2" class="co2-count">37,000,000,000</div>
+            <div class="small">tonnes per year</div>
+          </div>
+
+          <form id="waitlist-form" class="card waitlist" aria-labelledby="waitlist-title">
+            <h3 id="waitlist-title">Get Early Access</h3>
+            <div class="field">
+              <label for="email" class="sr-only">Email address</label>
+              <input id="email" type="email" placeholder="Enter your email" autocomplete="email" />
+            </div>
+            <button type="submit" id="submit-btn" class="btn-primary">Join the Waitlist</button>
+            <div id="form-feedback" class="form-feedback" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <div class="hero-right">
+          <div class="earth-wrap">
+            <!-- <canvas id="earthCanvas" width="420" height="420" aria-hidden="true"></canvas> -->
+            <img src="assets/earth.gif" class="earth-gif" alt="Earth">
+            <div class="badge">
+              <div class="badge-value">2.5B+</div>
+              <div class="badge-sub">Tonnes Offset</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- stats -->
+      <section class="stats container" id="about">
+        <div class="stat-grid">
+          <div class="stat card">
+            <div class="stat-value">150+</div>
+            <div class="stat-label">Countries</div>
+          </div>
+          <div class="stat card">
+            <div class="stat-value">10K+</div>
+            <div class="stat-label">Projects</div>
+          </div>
+          <div class="stat card">
+            <div class="stat-value">50M+</div>
+            <div class="stat-label">Users</div>
+          </div>
+          <div class="stat card">
+            <div class="stat-value">99.9%</div>
+            <div class="stat-label">Verified</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- footer -->
+      <footer class="footer">
+        <div class="container footer-inner">
+          <p>© <span id="year"></span> Climakt India. Making Earth greener, one credit at a time.</p>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
